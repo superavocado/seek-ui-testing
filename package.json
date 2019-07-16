@@ -1,0 +1,29 @@
+{
+    "name": "seek_uitesting_cucumber",
+    "version": "1.0.0",
+    "description": "seek ui testing using selenium webdriver and cucumber",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/test007-github/SEEK_UItesting_Cucumber.git"
+    },
+    "keywords": [
+        "SEEK",
+        "UI",
+        "TESTING"
+    ],
+    "author": "Tina",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/test007-github/SEEK_UItesting_Cucumber/issues"
+    },
+    "homepage": "https://github.com/test007-github/SEEK_UItesting_Cucumber#readme",
+    "dependencies": {
+        "@types/selenium-webdriver": "^3.0.10",
+        "chromedriver": "^2.40.0",
+        "selenium-webdriver": "^3.6.0"
+    }
+}
