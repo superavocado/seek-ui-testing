@@ -4,7 +4,7 @@
     "description": "seek ui testing using selenium webdriver and cucumber",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "node_modules/.bin/cucumber-js ./features"
     },
     "repository": {
         "type": "git",
@@ -24,6 +24,7 @@
     "dependencies": {
         "@types/selenium-webdriver": "^3.0.10",
         "chromedriver": "^2.40.0",
+        "cucumber": "^5.1.0",
         "selenium-webdriver": "^3.6.0"
     }
 }
