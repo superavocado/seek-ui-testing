@@ -12,7 +12,7 @@ function createDriver() {
     if (['chrome', 'firefox', 'ie'].indexOf(browser) < 0) browser = 'chrome'; //default to chrome
     return new webDriver.Builder()
     .forBrowser(browser)
-    .setChromeOptions(chromeOptions.headless())
+        .setChromeOptions(chromeOptions.headless(), chromeOptions.addArguments("--window-size=1366x768"))
     .build();
 }
 
