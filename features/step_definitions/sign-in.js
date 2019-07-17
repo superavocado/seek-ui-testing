@@ -14,7 +14,7 @@ Given(/^Browse to web site$/, async function () {
 When(/^click sign in to go to the sign in page$/, async function () {
 
     await driver.findElement(By.css('nav[data-automation="sign-in-register"]>a:nth-child(1)')).click();
-    //await driver.wait(until.titleIs('Candidate Sign in - SEEK'), 10 * 1000);
+    await driver.wait(until.titleIs('Candidate Sign in - SEEK'), 10 * 1000);
 });
 
 When(/^input email "([^"]*)"$/, async function (email) {
@@ -58,5 +58,4 @@ Then(/^verify the "([^"]*)" acorrding to the "([^"]*)"$/, async function (checkp
         case 5:
             verify_email_message();
     }
-    //driver.sleep(3*1000);
 });
