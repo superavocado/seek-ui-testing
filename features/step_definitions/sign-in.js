@@ -1,6 +1,6 @@
 const { Given, When, Then } = require('cucumber');
 const assert = require('assert');
-const { driver } = require('../support/web_driver');
+const {driver}  = require('../support/web_driver');
 const { rootUrl } = require('../../config.js');
 const { By, Key, until } = require('selenium-webdriver');
 
@@ -13,8 +13,8 @@ Given(/^Browse to web site$/, async function () {
 
 When(/^click sign in to go to the sign in page$/, async function () {
 
-    await driver.findElement(By.css('nav[data-automation="sign-in-register"]>a:nth-child(1)')).click();
-    await driver.wait(until.titleIs('Candidate Sign in - SEEK'), 10 * 1000);
+    await driver.wait(until.elementLocated(By.css('nav[data-automation="sign-in-register"]>a:nth-child(1)'))).click();
+    //await driver.wait(until.titleIs('Candidate Sign in - SEEK'), 10 * 1000);
 });
 
 When(/^input email "([^"]*)"$/, async function (email) {

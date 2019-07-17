@@ -7,8 +7,9 @@ let chromeOptions = new Options();
 
 //create WebDriver instance based on your browser config;
 function createDriver() {
-    let browserConfig = process.env.BROWSER || 'chrome';
+    let browserConfig = process.env.browser || 'chrome';
     let browser = browserConfig.toLowerCase();
+    console.log (browser);
     if (['chrome', 'firefox', 'ie'].indexOf(browser) < 0) browser = 'chrome'; //default to chrome
     return new webDriver.Builder()
     .forBrowser(browser)
