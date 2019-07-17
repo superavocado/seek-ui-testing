@@ -15,4 +15,4 @@ verify different scenarios for sign in
       | aaabbbccc              | Test007@seek | 3      | Email is not a valid email    |
       |                        | Test007@seek | 4      | Email is not a valid email    |
       | mywebtest008@gmail.com | Test007@seek | 5      | We don't recognise this email |
-      # | mywebtest007@gmail.com | Test007@seek | 0      | Test007                       |
+      | mywebtest007@gmail.com | Test007@seek | 0      | Test007                       |
