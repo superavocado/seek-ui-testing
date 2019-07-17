@@ -18,7 +18,6 @@ When(/^click sign in to go to the sign in page$/, async function () {
 });
 
 When(/^input email "([^"]*)"$/, async function (email) {
-
     let ele = await driver.wait(until.elementLocated(By.id('email')), 10*1000);
     ele.sendKeys(email);
 });

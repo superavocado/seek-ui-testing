@@ -10,12 +10,12 @@ Before(function () {
 
 After(async function () {
     //After Scenario Hook
-
     //capture screenshot after each scenario
     let screenshot = await driver.takeScreenshot();
     this.attach(screenshot, 'image/png');
     //clean up cookies
     await driver.manage().deleteAllCookies();
+    driver.sleep(1000);  
 });
 
 AfterAll(function () {
