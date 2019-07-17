@@ -58,5 +58,5 @@ Then(/^verify the "([^"]*)" acorrding to the "([^"]*)"$/, async function (checkp
         case 5:
             verify_email_message();
     }
-    driver.sleep(3*1000);
+    //driver.sleep(3*1000);
 });
