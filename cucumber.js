@@ -1,0 +1,1 @@
+module.exports = {"default1": "-f summary -f json:./reports/cucumber_report.json"};

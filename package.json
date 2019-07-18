@@ -4,7 +4,7 @@
     "description": "seek ui testing using selenium webdriver and cucumber",
     "main": "index.js",
     "scripts": {
-        "test": "node_modules/.bin/cucumber-js ./features -f json:reports/cucumber_report.json"
+        "test": "cucumber-js"
     },
     "repository": {
         "type": "git",
