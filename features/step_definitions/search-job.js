@@ -22,7 +22,7 @@ When('select classification - Science & Technology', async function () {
   await driver.findElement(By.css('a[data-automation="6281"]')).sendKeys(Key.ESCAPE);
 });
 
-When('click SEEK  button', async function () {
+When('click SEEK button', async function () {
   await driver.findElement(By.css('button[data-automation="searchButton"]')).click();
   //driver.sleep(3000);
 });

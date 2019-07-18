@@ -6,7 +6,7 @@ Search jobs according to different keywords and location.
         When input keywords "<keywords>" 
         And select classification - Science & Technology
         And input location "<location>"
-        And click SEEK  button
+        And click SEEK button
         And selet work types
         And select listed time
         Then vefiry the search result
