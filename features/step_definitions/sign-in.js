@@ -1,32 +1,13 @@
-require('chromedriver');
-const { Builder, By, Key, until } = require('selenium-webdriver');
-const { Given, When, Then, Before, After, setDefaultTimeout} = require('cucumber');
+//require('chromedriver');
+
+const { By, Key, until } = require('selenium-webdriver');
+const { Given, When, Then} = require('cucumber');
 const assert = require('assert');
 
-const { Options } = require('selenium-webdriver/chrome');
+const { driver } = require('../support/web_driver');
 const { rootUrl } = require('../../config.js');
 
-var chromeOptions = new Options();
-setDefaultTimeout(60*1000);
-var driver;
-
-
-Before(async function(){
-    driver = new Builder()
-    .forBrowser('chrome')
-    .setChromeOptions(chromeOptions.headless(), chromeOptions.addArguments("--window-size=1366x768"))
-    .build();
-})
-After(async function () {
-    //let screenshot = await driver.takeScreenshot();
-    //this.attach(screenshot, 'image/png');
-    await driver.manage().deleteAllCookies();
-    await driver.quit();
-});
-
-
-Given(/^Browse to web site$/, async function () {
-
+Given(/^Browse to website$/, async function () {
     await driver.get(rootUrl);
 });
 
