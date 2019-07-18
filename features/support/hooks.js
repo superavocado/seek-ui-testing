@@ -15,6 +15,7 @@ After(async function () {
     //this.attach(screenshot, 'image/png');
     //clean up cookies
     await driver.manage().deleteAllCookies();
+    driver.sleep(1000);
 });
 
 AfterAll(function () {
