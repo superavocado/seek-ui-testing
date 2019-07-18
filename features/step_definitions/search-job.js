@@ -43,8 +43,5 @@ When('select listed time', async function () {
 
 Then('vefiry the search result', async function () {
   let result = await driver.wait(until.elementLocated(By.id('SearchSummary')), 10 * 1000).getText();
-
-  let res = result.split(' ');
-  console.log(res);
   assert.ok(result.includes('jobs found'));
 });
