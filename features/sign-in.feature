@@ -7,7 +7,7 @@ verify different scenarios for sign in
     And input email "<email>"
     And input password "<pw>"
     And click sign in button
-    Then verify the "<checkpoint>" acorrding to the "<status>"
+    Then verify the sign in "<checkpoint>" acorrding to the "<status>"
     Examples: 
       | email                  | pw           | status | checkpoint                    |  
       | mywebtest007@gmail.com | 123456       | 1      | Incorrect password            |

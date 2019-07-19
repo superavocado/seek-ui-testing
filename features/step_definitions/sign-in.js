@@ -32,7 +32,7 @@ When(/^click sign in button$/, async function () {
     await driver.findElement(By.css('button[data-automation="signin-submit"]')).click();
 });
 
-Then(/^verify the "([^"]*)" acorrding to the "([^"]*)"$/, async function (checkpoint, status) {
+Then(/^verify the sign in "([^"]*)" acorrding to the "([^"]*)"$/, async function (checkpoint, status) {
     let result; 
     async function verify_email_message(){
         result = await driver.findElement(By.id('email-message')).getText();
