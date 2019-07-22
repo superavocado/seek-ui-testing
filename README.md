@@ -1,3 +1,4 @@
-# SEEK_UItesting_Cucumber
+# SEEK UI Testing 
 
-[![Build Status](https://travis-ci.org/test007-github/SEEK_UItesting_Cucumber.svg?branch=master)](https://travis-ci.org/test007-github/SEEK_UItesting_Cucumber)
+[![Build Status](https://travis-ci.org/superavocado/seek-ui-testing.svg?branch=master)](https://travis-ci.org/superavocado/seek-ui-testing)
+
