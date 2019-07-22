@@ -2,12 +2,12 @@ Feature: sign in
 verify different scenarios for sign in
 
   Scenario Outline: sign in
-    Given Browse to website
+    Given Browse to website "https://www.seek.com.au"
     When click sign in to go to the sign in page
     And input email "<email>"
     And input password "<pw>"
     And click sign in button
-    Then verify the "<checkpoint>" acorrding to the "<status>"
+    Then verify the sign in "<checkpoint>" acorrding to the "<status>"
     Examples: 
       | email                  | pw           | status | checkpoint                    |  
       | mywebtest007@gmail.com | 123456       | 1      | Incorrect password            |
