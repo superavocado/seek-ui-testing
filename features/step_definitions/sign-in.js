@@ -1,14 +1,12 @@
-//require('chromedriver');
-
-const { By, Key, until } = require('selenium-webdriver');
 const { Given, When, Then} = require('cucumber');
+const { By, Key, until } = require('selenium-webdriver');
+
 const assert = require('assert');
 
 const { driver } = require('../support/web_driver');
-const { rootUrl } = require('../../config.js');
 
-Given(/^Browse to website$/, async function () {
-    await driver.get(rootUrl);
+Given('Browse to website {string}', async function (url) {
+    await driver.get(url);
 });
 
 When(/^click sign in to go to the sign in page$/, async function () {

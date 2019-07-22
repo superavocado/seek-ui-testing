@@ -2,7 +2,7 @@ Feature: sign in
 verify different scenarios for sign in
 
   Scenario Outline: sign in
-    Given Browse to website
+    Given Browse to website "https://www.seek.com.au"
     When click sign in to go to the sign in page
     And input email "<email>"
     And input password "<pw>"

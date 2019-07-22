@@ -1,10 +1,8 @@
-require('chromedriver');
 const { Builder, By, Key, until } = require('selenium-webdriver');
 const { Given, When, Then } = require('cucumber');
 const assert = require('assert');
 
 const { driver } = require('../support/web_driver');
-const { rootUrl } = require('../../config.js');
 
 When('input keywords {string}', async function (keywords) {
   await driver.findElement(By.id('SearchBar__Keywords')).sendKeys(keywords);
@@ -72,7 +70,7 @@ When('input location {string}', async function (location) {
 
 When('click SEEK button', async function () {
   await driver.findElement(By.css('button[data-automation="searchButton"]')).click();
-  driver.sleep(1000);
+  driver.sleep(3000);
 });
 
 Then('vefiry the search resault with proper or empty conditions', async function () {
