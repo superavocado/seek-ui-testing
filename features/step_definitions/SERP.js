@@ -16,7 +16,7 @@ Then('{int} organic jobs are displayed', async function (result_per_page) {
     assert.ok(normal_Jobs.length == result_per_page);
 });
 
-Then('job title are displayed for each job', async function () {
+Then('job title is displayed for each job', async function () {
     for (let ele of premium_Jobs){
         let job_Title = await ele.findElement(By.css('a[data-automation="jobTitle"]')).getText();
         assert.ok(job_Title.length>0);
@@ -27,37 +27,48 @@ Then('job title are displayed for each job', async function () {
     }
 });
 
-Then('job location are displayed for each job', async function () {
+Then('job location is displayed for each job', async function () {
     for (let ele of premium_Jobs){
-        let job_Title = await ele.findElement(By.css('a[data-automation="jobLocation"]')).getText();
-        assert.ok(job_Title.length>0);
+        let job_Location = await ele.findElement(By.css('a[data-automation="jobLocation"]')).getText();
+        assert.ok(job_Location.length>0);
     }
     for (let ele of normal_Jobs){
-        let job_Title = await ele.findElement(By.css('a[data-automation="jobLocation"]')).getText();
-        assert.ok(job_Title.length>0);
+        let job_Location = await ele.findElement(By.css('a[data-automation="jobLocation"]')).getText();
+        assert.ok(job_Location.length>0);
     }
 });
 
-Then('job classification are displayed for each job', async function () {
+Then('job classification is displayed for each job', async function () {
     for (let ele of premium_Jobs){
-        let job_Title = await ele.findElement(By.css('a[data-automation="jobClassification"]')).getText();
-        assert.ok(job_Title.length>0);
+        let job_Classification = await ele.findElement(By.css('a[data-automation="jobClassification"]')).getText();
+        assert.ok(job_Classification.length>0);
     }
     for (let ele of normal_Jobs){
-        let job_Title = await ele.findElement(By.css('a[data-automation="jobClassification"]')).getText();
-        assert.ok(job_Title.length>0);
+        let job_Classification = await ele.findElement(By.css('a[data-automation="jobClassification"]')).getText();
+        assert.ok(job_Classification.length>0);
     }
 });
 
 
-Then('job short description are displayed for each job', async function () {
+Then('job short description is displayed for each job', async function () {
     for (let ele of premium_Jobs){
-        let job_Title = await ele.findElement(By.css('span[data-automation="jobShortDescription"]')).getText();
-        assert.ok(job_Title.length>0);
+        let job_Description = await ele.findElement(By.css('span[data-automation="jobShortDescription"]')).getText();
+        assert.ok(job_Description.length>0);
     }
     for (let ele of normal_Jobs){
-        let job_Title = await ele.findElement(By.css('span[data-automation="jobShortDescription"]')).getText();
-        assert.ok(job_Title.length>0);
+        let job_Description = await ele.findElement(By.css('span[data-automation="jobShortDescription"]')).getText();
+        assert.ok(job_Description.length>0);
+    }
+});
+
+Then('save job is displayed for each job', async function () {
+    for (let ele of premium_Jobs){
+        let save_Job = await ele.findElement(By.css('a[data-automation="signed-out-save-job"]')).getText();
+        assert.ok(save_Job.includes('Save'));
+    }
+    for (let ele of normal_Jobs){
+        let save_Job = await ele.findElement(By.css('a[data-automation="signed-out-save-job"]')).getText();
+        assert.ok(save_Job.includes('Save'));
     }
 });
 
