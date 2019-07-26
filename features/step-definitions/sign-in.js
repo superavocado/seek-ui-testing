@@ -1,5 +1,5 @@
 const { Given, When, Then} = require('cucumber');
-const { By, Key, until } = require('selenium-webdriver');
+const { By, until } = require('selenium-webdriver');
 
 const assert = require('assert');
 
@@ -7,6 +7,7 @@ const { driver } = require('../support/web_driver');
 
 Given('Browse to website {string}', async function (url) {
     await driver.get(url);
+    await driver.sleep(1000);
 });
 
 When(/^click sign in to go to the sign in page$/, async function () {
@@ -28,6 +29,7 @@ When(/^input password "([^"]*)"$/, async function (pw) {
 When(/^click sign in button$/, async function () {
 
     await driver.findElement(By.css('button[data-automation="signin-submit"]')).click();
+    await driver.sleep(1000);
 });
 
 Then(/^verify the sign in "([^"]*)" acorrding to the "([^"]*)"$/, async function (checkpoint, status) {
@@ -44,14 +46,19 @@ Then(/^verify the sign in "([^"]*)" acorrding to the "([^"]*)"$/, async function
         case 0:
             result = await driver.findElement(By.css('span[data-automation="user-account-name"]')).getText();
             assert.equal(result, checkpoint);
+            break;
         case 1:
             verify_pw_message();
+            break;
         case 2:
             verify_pw_message();
+            break;
         case 3:
             verify_email_message();
+            break;
         case 4:
             verify_email_message();
+            break;
         case 5:
             verify_email_message();
     }

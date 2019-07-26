@@ -93,5 +93,5 @@ Then('the href for the pagination is correct', async function () {
 
 When('click page {int}', async function (page_index) {
     await driver.findElement(By.css('a[data-automation="page-' + page_index + '"]')).click();
-    await driver.sleep('1000');
+    await driver.sleep(1000);
 });
