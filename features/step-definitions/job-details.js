@@ -27,17 +27,17 @@ Then('job description is displayed', async function () {
 Then('job apply button is displayed', async function () {
     let eles = await driver.findElements(By.css('a[data-automation="job-detail-apply"]'));
     let text = await eles[0].getAttribute("textContent");
-    assert.ok(text == "Apply for this job")
+    assert.equal(text, "Apply for this job")
 });
 
 Then('job save button is displayed', async function () {
     let text = await driver.findElement(By.css('button[data-automation="signed-out-save-job"]')).getText();
-    assert.ok(text == "Save job")
+    assert.equal(text, "Save job")
 });
 
 Then('job send button is displayed', async function () {
     let text = await driver.findElement(By.css('button[data-automation="job-detail-send-job"]')).getText();
-    assert.ok(text == "Send job")
+    assert.equal(text, "Send job")
 });
 
 Then('job side info is displayed', async function () {
@@ -50,5 +50,5 @@ Then('job side info is displayed', async function () {
 Then('job safe searching info is displayed', async function () {
     let ele = await driver.findElement(By.linkText('Be careful'));
     let href = await ele.getAttribute('href');
-    assert.ok(href == "https://www.seek.com.au/safe-job-searching");
+    assert.equal(href, "https://www.seek.com.au/safe-job-searching");
 });
