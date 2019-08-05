@@ -31,18 +31,30 @@ Feature: user profile page
       two
       three
       """
-    And click save button to save personal summary
+    And click save button to save the personal summary
     Then personla summary is displayed on the screen
 
-# Scenario: Career history
-#   Given Browse to website "https://www.seek.com.au"
-#   When click sign in to go to the sign in page
-#   And input email "mywebtest007@gmail.com"
-#   And input password "Test007@seek"
-#   And click sign in button
-#   And click profile tab
-#   When click add role button
-#   Then add role card pops up
+  Scenario: Career history
+    Given Browse to website "https://www.seek.com.au"
+    When click sign in to go to the sign in page
+    And input email "mywebtest007@gmail.com"
+    And input password "Test007@seek"
+    And click sign in button
+    And click profile tab
+    When click add role button
+    And input job title "tester"
+    And input company name "company"
+    And select the start month and the year
+    And select the end month and the year
+    And add some description
+      """
+      Create the test plan
+      Execute test cases
+      Report defects
+      """
+    And click save button to save the career history
+    Then career history is displayed on the screen
+
 
 # Scenario: Education
 #   Given Browse to website "https://www.seek.com.au"
