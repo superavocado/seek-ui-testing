@@ -10,7 +10,7 @@ When('select one job', async function () {
     let normal_Jobs = await driver.findElements(By.css('article[data-automation="normalJob"]'));
     let job = await normal_Jobs[0].findElement(By.css('a[data-automation="jobTitle"]'));
     job.click();
-    await driver.sleep('10000');
+    await driver.sleep('1000');
 });
 
 Then('job title is displayed', async function () {
