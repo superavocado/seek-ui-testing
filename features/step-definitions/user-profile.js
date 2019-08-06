@@ -162,12 +162,15 @@ When('input the course or qualification {string}', async function (qualification
     edu_qualification = qualification;
     let ele = await driver.findElement(By.id('name'));
     await ele.sendKeys(qualification);
-    await ele.sendKeys(Key.ENTER);
+    await ele.sendKeys(Key.TAB);
 });
 
 When('click save button to save the education', async function () {
-    //await driver.findElement(By.css('button[data-automation="education-save-button"]')).click();
-    //await driver.sleep(1000);
+    await driver.findElement(By.css('button[data-automation="education-save-button"]')).click();
+    await driver.sleep(1000);
+    await driver.navigate().refresh();
+    await driver.sleep(1000);
+    
     // let imageData = await driver.takeScreenshot();
     //  fs.writeFile(__dirname + '/screenshot.png', imageData, 'base64', (err) => {
     //      if (err) throw (err);
