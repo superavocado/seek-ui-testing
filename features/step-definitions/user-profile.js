@@ -167,17 +167,14 @@ When('input the course or qualification {string}', async function (qualification
 
 When('click save button to save the education', async function () {
     await driver.findElement(By.css('button[data-automation="education-save-button"]')).click();
-    await driver.sleep(1000);
-    let imageData = await driver.takeScreenshot();
-    //console.log(imageData);
-     fs.writeFile(__dirname + '/screenshot.png', imageData, 'base64', (err) => {
-         if (err) throw (err);
-     });
+    // let imageData = await driver.takeScreenshot();
+    //  fs.writeFile(__dirname + '/screenshot.png', imageData, 'base64', (err) => {
+    //      if (err) throw (err);
+    //  });
 });
 
 Then('education is displayed on the screen', async function () {
-    //await driver.wait(until.elementLocated(By.css('h1[data-automation="education-read-title"]')), 3*1000);
-    let ele = await driver.wait(until.elementLocated(By.css('button[data-automation="education-add"]')), 3*1000);
+    await driver.wait(until.elementLocated(By.css('h1[data-automation="education-read-title"]')), 10*1000);
     let eles = await driver.findElements(By.css('span[data-automation^="qualification"]'));
     let text = await eles[eles.length - 1].getText()
     let expected_education = edu_qualification + ' from ' + edu_institute;
