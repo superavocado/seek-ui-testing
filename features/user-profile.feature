@@ -56,15 +56,18 @@ Feature: user profile page
     Then career history is displayed on the screen
 
 
-# Scenario: Education
-#   Given Browse to website "https://www.seek.com.au"
-#   When click sign in to go to the sign in page
-#   And input email "mywebtest007@gmail.com"
-#   And input password "Test007@seek"
-#   And click sign in button
-#   And click profile tab
-#   When click add qualification button
-#   Then add qualification card pops up
+Scenario: Education
+  Given Browse to website "https://www.seek.com.au"
+  When click sign in to go to the sign in page
+  And input email "mywebtest007@gmail.com"
+  And input password "Test007@seek"
+  And click sign in button
+  And click profile tab
+  When click add qualification button
+  And input the institution name  "University of Melbourne"
+  And input the course or qualification "Diploma of Computer Science"
+  And click save button to save the education
+  Then education is displayed on the screen
 
 # Scenario: Skills
 #   Given Browse to website "https://www.seek.com.au"
