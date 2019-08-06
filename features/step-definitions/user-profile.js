@@ -166,7 +166,6 @@ When('input the course or qualification {string}', async function (qualification
 
 When('click save button to save the education', async function () {
     await driver.findElement(By.css('button[data-automation="education-save-button"]')).click();
-
 });
 
 Then('education is displayed on the screen', async function () {
