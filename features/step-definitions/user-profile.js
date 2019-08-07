@@ -21,7 +21,7 @@ When('input first name {string} and last name {string}', async function (firstNa
     expected_name = firstName + ' ' + lastName;
     let fn = await driver.wait(until.elementLocated(By.id('firstName')),3*1000);
     await driver.actions().doubleClick(fn).sendKeys(Key.DELETE).perform();
-    await driver.sleep(500);
+    await driver.sleep(1000);
     await fn.sendKeys(firstName);
 
     let ln = await driver.findElement(By.id('lastName'));
