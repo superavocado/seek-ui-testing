@@ -147,7 +147,7 @@ Then('career history is displayed on the screen', async function () {
 //Education
 let edu_institute, edu_qualification;
 When('click add qualification button', async function () {
-    let ele = await driver.wait(until.elementLocated(By.css('button[data-automation="education-add"]')), 3*1000);
+    let ele = await driver.wait(until.elementLocated(By.css('button[data-automation="education-add"]')), 3 * 1000);
     await ele.click()
 });
 
@@ -165,34 +165,30 @@ When('input the course or qualification {string}', async function (qualification
     await ele.sendKeys(Key.TAB);
 });
 
+When('input the level of qualificatioin {string}', async function (level) {
+    let ele = await driver.findElement(By.id('level'));
+    await ele.sendKeys(level);
+});
+
 When('click save button to save the education', async function () {
     await driver.findElement(By.css('button[data-automation="education-save-button"]')).click();
     await driver.sleep(1000);
-    // await driver.navigate().refresh();
-    // await driver.sleep(1000);
-    
-    // let imageData = await driver.takeScreenshot();
-    //  fs.writeFile(__dirname + '/screenshot.png', imageData, 'base64', (err) => {
-    //      if (err) throw (err);
-    //  });
 });
 
 Then('education is displayed on the screen', async function () {
-    // let t1 = await driver.findElement(By.id('education')).getText();
-    // console.log(t1);
-    // let eles = await driver.findElements(By.css('span[data-automation^="qualification"]'));
-    // let text = await eles[eles.length - 1].getText();
-    // let expected_education = edu_qualification + ' from ' + edu_institute;
-    // assert.equal(text, expected_education);
+    let eles = await driver.findElements(By.css('span[data-automation^="qualification"]'));
+    let text = await eles[eles.length - 1].getText();
+    let expected_education = edu_qualification + ' from ' + edu_institute;
+    assert.equal(text, expected_education);
 
-    // if (eles.length > 0) {
-    //     let edit_buttons = await driver.findElements(By.css('button[data-automation^="edit-qualfication"]'));
-    //     await edit_buttons[edit_buttons.length - 1].click();
+    if (eles.length > 0) {
+        let edit_buttons = await driver.findElements(By.css('button[data-automation^="edit-qualfication"]'));
+        await edit_buttons[edit_buttons.length - 1].click();
 
-    //     let delet_button = await driver.wait(until.elementIsVisible(await driver.findElement(By.css('button[data-automation="education-delete"]'))), 3 * 1000);
-    //     await delet_button.click();
-    //     let confirm_button = await driver.wait(until.elementIsVisible(await driver.findElement(By.css('button[data-automation="confirm-delete-qualification"]'))), 3 * 1000);
-    //     await confirm_button.click();
-    // }
+        let delet_button = await driver.wait(until.elementIsVisible(await driver.findElement(By.css('button[data-automation="education-delete"]'))), 3 * 1000);
+        await delet_button.click();
+        let confirm_button = await driver.wait(until.elementIsVisible(await driver.findElement(By.css('button[data-automation="confirm-delete-qualification"]'))), 3 * 1000);
+        await confirm_button.click();
+    }
 });
 
