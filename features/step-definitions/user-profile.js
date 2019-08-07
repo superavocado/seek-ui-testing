@@ -22,7 +22,7 @@ When('input first name {string} and last name {string}', async function (firstNa
     expected_name = firstName + ' ' + lastName;
     let fn = await driver.findElement(By.id('firstName'));
     await driver.actions().doubleClick(fn).sendKeys(Key.DELETE).perform();
-    await sleep(1000);
+    await driver.sleep(1000);
     await fn.sendKeys(firstName);
 
     let ln = await driver.findElement(By.id('lastName'));
