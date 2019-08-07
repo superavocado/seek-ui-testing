@@ -19,13 +19,14 @@ When('click edit personal details button', async function () {
 
 When('input first name {string} and last name {string}', async function (firstName, lastName) {
     expected_name = firstName + ' ' + lastName;
-    let fn = await driver.findElement(By.id('firstName'));
+    let fn = await driver.wait(until.elementLocated(By.id('firstName')),3*1000);
     await driver.actions().doubleClick(fn).sendKeys(Key.DELETE).perform();
+    await driver.sleep(500);
     await fn.sendKeys(firstName);
-    await driver.sleep(1000);
 
     let ln = await driver.findElement(By.id('lastName'));
     await driver.actions().doubleClick(ln).sendKeys(Key.DELETE).perform();
+    await driver.sleep(500);
     await ln.sendKeys(lastName);
 });
 
