@@ -22,6 +22,7 @@ When('input first name {string} and last name {string}', async function (firstNa
     expected_name = firstName + ' ' + lastName;
     let fn = await driver.findElement(By.id('firstName'));
     await driver.actions().doubleClick(fn).sendKeys(Key.DELETE).perform();
+    await sleep(1000);
     await fn.sendKeys(firstName);
 
     let ln = await driver.findElement(By.id('lastName'));
@@ -168,6 +169,7 @@ When('input the course or qualification {string}', async function (qualification
 When('input the level of qualificatioin {string}', async function (level) {
     let ele = await driver.findElement(By.id('level'));
     await ele.sendKeys(level);
+    await ele.sendKeys(Key.TAB);
 });
 
 When('click save button to save the education', async function () {
