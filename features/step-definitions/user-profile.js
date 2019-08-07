@@ -15,6 +15,7 @@ When('click profile tab', async function () {
 When('click edit personal details button', async function () {
     let ele = await driver.wait(until.elementLocated(By.css('button[data-automation="personal-details-edit"]')), 10000);
     await ele.click();
+    await driver.sleep(1000);
     
 });
 
