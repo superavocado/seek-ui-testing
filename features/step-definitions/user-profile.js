@@ -19,13 +19,14 @@ When('click edit personal details button', async function () {
 
 When('input first name {string} and last name {string}', async function (firstName, lastName) {
     expected_name = firstName + ' ' + lastName;
-    let fn = await driver.findElement(By.id('firstName'));
+    let fn = await driver.wait(until.elementLocated(By.id('firstName')),3*1000);
     await driver.actions().doubleClick(fn).sendKeys(Key.DELETE).perform();
+    await driver.sleep(500);
     await fn.sendKeys(firstName);
-    await driver.sleep(1000);
 
     let ln = await driver.findElement(By.id('lastName'));
     await driver.actions().doubleClick(ln).sendKeys(Key.DELETE).perform();
+    await driver.sleep(500);
     await ln.sendKeys(lastName);
 });
 
@@ -147,7 +148,7 @@ Then('career history is displayed on the screen', async function () {
 //Education
 let edu_institute, edu_qualification;
 When('click add qualification button', async function () {
-    let ele = await driver.wait(until.elementLocated(By.css('button[data-automation="education-add"]')), 3*1000);
+    let ele = await driver.wait(until.elementLocated(By.css('button[data-automation="education-add"]')), 3 * 1000);
     await ele.click()
 });
 
@@ -165,18 +166,19 @@ When('input the course or qualification {string}', async function (qualification
     await ele.sendKeys(Key.TAB);
 });
 
+When('input the level of qualificatioin {string}', async function (level) {
+    let ele = await driver.findElement(By.id('level'));
+    await ele.sendKeys(level);
+});
+
 When('click save button to save the education', async function () {
     await driver.findElement(By.css('button[data-automation="education-save-button"]')).click();
-    // let imageData = await driver.takeScreenshot();
-    //  fs.writeFile(__dirname + '/screenshot.png', imageData, 'base64', (err) => {
-    //      if (err) throw (err);
-    //  });
+    await driver.sleep(1000);
 });
 
 Then('education is displayed on the screen', async function () {
-    await driver.wait(until.elementLocated(By.css('h1[data-automation="education-read-title"]')), 10*1000);
     let eles = await driver.findElements(By.css('span[data-automation^="qualification"]'));
-    let text = await eles[eles.length - 1].getText()
+    let text = await eles[eles.length - 1].getText();
     let expected_education = edu_qualification + ' from ' + edu_institute;
     assert.equal(text, expected_education);
 
