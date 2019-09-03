@@ -14,19 +14,20 @@ When('click profile tab', async function () {
 
 When('click edit personal details button', async function () {
     let ele = await driver.wait(until.elementLocated(By.css('button[data-automation="personal-details-edit"]')), 10000);
-    ele.click();
+    await ele.click();
+    await driver.sleep(1000);
+    
 });
 
 When('input first name {string} and last name {string}', async function (firstName, lastName) {
     expected_name = firstName + ' ' + lastName;
-    let fn = await driver.wait(until.elementLocated(By.id('firstName')),3*1000);
+    let fn = await driver.findElement(By.id('firstName'));
     await driver.actions().doubleClick(fn).sendKeys(Key.DELETE).perform();
-    await driver.sleep(500);
+    await driver.sleep(1000);
     await fn.sendKeys(firstName);
 
     let ln = await driver.findElement(By.id('lastName'));
     await driver.actions().doubleClick(ln).sendKeys(Key.DELETE).perform();
-    await driver.sleep(500);
     await ln.sendKeys(lastName);
 });
 
@@ -169,6 +170,7 @@ When('input the course or qualification {string}', async function (qualification
 When('input the level of qualificatioin {string}', async function (level) {
     let ele = await driver.findElement(By.id('level'));
     await ele.sendKeys(level);
+    await ele.sendKeys(Key.TAB);
 });
 
 When('click save button to save the education', async function () {
